@@ -10,7 +10,6 @@ import { Injectable } from '@angular/core';
 export class UserService extends BaseService {
   constructor() {
     super();
-    this.baseUrl = environment?.apiUrl;
   }
 
   getPublicInfo(params?: Record<string, any>): Observable<User> {

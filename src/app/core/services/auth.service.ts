@@ -8,7 +8,6 @@ import { BaseService } from './base.service';
 export class AuthService extends BaseService {
   constructor() {
     super();
-    this.baseUrl = environment?.apiUrl;
   }
 
   getAuthToken() {

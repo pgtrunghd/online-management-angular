@@ -16,7 +16,6 @@ export class ProjectService extends BaseService {
 
   constructor() {
     super();
-    this.baseUrl = environment?.apiUrl;
   }
 
   getProjects(params?: Record<string, any>): Observable<Project> {

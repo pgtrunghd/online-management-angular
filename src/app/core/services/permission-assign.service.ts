@@ -10,7 +10,6 @@ import { Injectable } from '@angular/core';
 export class PermissionAssignService extends BaseService {
   constructor() {
     super();
-    this.baseUrl = environment?.apiUrl;
   }
 
   getUser(params?: Record<string, any>): Observable<User> {

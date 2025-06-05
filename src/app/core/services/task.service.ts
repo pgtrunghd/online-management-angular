@@ -19,7 +19,6 @@ export class TaskService extends BaseService {
 
   constructor() {
     super();
-    this.baseUrl = environment?.apiUrl;
 
     // effect(() => {
     //   this.refreshTrigger();

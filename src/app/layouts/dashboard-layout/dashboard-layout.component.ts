@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  computed,
-  inject,
-  signal
-} from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -18,12 +12,7 @@ import { SvgIconDirective } from '../../shared/directives/svg-icon.directive';
 
 @Component({
   selector: 'app-dashboard-layout',
-  imports: [
-    RouterOutlet,
-    SvgIconDirective,
-    RouterLink,
-    RouterLinkActive,
-  ],
+  imports: [RouterOutlet, SvgIconDirective, RouterLink, RouterLinkActive],
   templateUrl: './dashboard-layout.component.html',
 })
 export class DashboardLayoutComponent implements OnInit {

@@ -1,4 +1,4 @@
 export const environment: { production: boolean; apiUrl: string } = {
-  production: true,
+  production: false,
   apiUrl: import.meta.env['NG_APP_BASE_URL'],
 };

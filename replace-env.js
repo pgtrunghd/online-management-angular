@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = './dist/online-management-angular/assets/env.js';
+const path = './dist/online-management-angular/browser/assets/env.js';
 
 const apiUrl = process.env.API_URL;
 

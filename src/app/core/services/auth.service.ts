@@ -19,8 +19,8 @@ export class AuthService extends BaseService {
   }
 
   login(credentials: { email: string; password: string }) {
-    console.log(this.baseUrl);
-
-    return this.http.post(`${this.baseUrl}/auth/login`, credentials);
+    return this.withLoadingPost(
+      this.http.post(`${this.baseUrl}/auth/login`, credentials)
+    );
   }
 }

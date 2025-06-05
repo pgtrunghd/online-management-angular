@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedModule } from '@shared/shared';
 import { AuthService } from '../../../../core/services/auth.service';
@@ -28,19 +24,10 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.loading = true;
-      this.authService.login(this.loginForm.value).subscribe({
-        next: (data: any) => {
-          localStorage.setItem('token', JSON.stringify(data.token));
-          localStorage.setItem('user', JSON.stringify(data.user));
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          console.log('Đăng nhập thất bại:', err);
-        },
-        complete: () => {
-          this.loading = false;
-        },
+      this.authService.login(this.loginForm.value).subscribe((data: any) => {
+        localStorage.setItem('token', JSON.stringify(data.token));
+        localStorage.setItem('user', JSON.stringify(data.user));
+        this.router.navigate(['/dashboard']);
       });
     } else {
       this.loginForm.markAllAsTouched();

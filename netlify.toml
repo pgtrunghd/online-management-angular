@@ -1,3 +1,0 @@
-[build]
-  command = "ng build --configuration production && node replace-env.js"
-  publish = "dist/online-management-angular/browser"

@@ -1,0 +1,143 @@
+<form
+  class="grid grid-cols-2 gap-4"
+  [formGroup]="createTaskForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="flex flex-col gap-2 col-span-2">
+    <label>Tên công việc</label>
+    <input pInputText formControlName="name" placeholder="Nhập tên công việc" />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Bắt đầu</label>
+    <div class="grid grid-cols-2 gap-2">
+      <p-datePicker
+        appendTo="body"
+        [timeOnly]="true"
+        formControlName="startTime"
+      />
+      <p-datepicker
+        appendTo="body"
+        [iconDisplay]="'input'"
+        showIcon
+        [dateFormat]="formatDatePicker"
+        formControlName="startDate"
+      />
+    </div>
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Kết thúc</label>
+    <div class="grid grid-cols-2 gap-2">
+      <p-datePicker
+        appendTo="body"
+        [timeOnly]="true"
+        formControlName="endTime"
+      />
+      <p-datepicker
+        appendTo="body"
+        [iconDisplay]="'input'"
+        showIcon
+        [dateFormat]="formatDatePicker"
+        formControlName="endDate"
+      />
+    </div>
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Người thực hiện</label>
+    <p-multiselect
+      appendTo="body"
+      [options]="permissionAssignUserOptions"
+      optionLabel="name"
+      display="chip"
+      [maxSelectedLabels]="permissionAssignUserOptions.length"
+      (onFilter)="filterPermissionAssignUser($event)"
+      filter
+      [loading]="permissionAssignUserService.loading()"
+      formControlName="assignees"
+      placeholder="Chọn người thực hiện"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Người giao việc</label>
+    <input
+      pInputText
+      [value]="getFullNameAndPosition(authService.getMe())"
+      disabled
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Người theo dõi</label>
+    <p-multiselect
+      appendTo="body"
+      [options]="userOptions"
+      optionLabel="name"
+      display="chip"
+      (onFilter)="filterUser($event)"
+      filter
+      formControlName="followers"
+      [loading]="userService.loading()"
+      [maxSelectedLabels]="userOptions.length"
+      placeholder="Chọn người theo dõi"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="username">Ưu tiên</label>
+    <p-select
+      appendTo="body"
+      placeholder="Chọn ưu tiên"
+      [options]="priorityOptions"
+      optionLabel="name"
+      showClear
+      formControlName="priority"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="username">Trạng thái</label>
+    <p-select
+      appendTo="body"
+      placeholder="Chọn trạng thái"
+      [options]="statusOptions"
+      optionLabel="name"
+      showClear
+      formControlName="status"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="username">Dự án</label>
+    <p-select
+      appendTo="body"
+      placeholder="Chọn dự án"
+      [options]="projectOptions"
+      optionLabel="name"
+      showClear
+      filter
+      (onFilter)="filterProjects($event)"
+      [loading]="projectService.loading()"
+      formControlName="project"
+    />
+  </div>
+  <div class="flex flex-col gap-2 col-span-2">
+    <label for="username">Công việc cha</label>
+    <p-select
+      appendTo="body"
+      placeholder="Chọn công việc cha"
+      [options]="taskOptions"
+      optionLabel="name"
+      showClear
+      filter
+      (onFilter)="filterTasks($event)"
+      [loading]="taskOptionsService.loading()"
+      formControlName="parent"
+    />
+  </div>
+  <div class="flex flex-col gap-2 col-span-2">
+    <label for="username">Mô tả</label>
+    <p-editor formControlName="description" />
+  </div>
+
+  <div class="flex justify-center col-span-2 gap-4">
+    <p-button severity="secondary" (onClick)="onClose()">Hủy</p-button>
+    <p-button type="submit" [loading]="taskService.loadingPost()">
+      {{ taskId() ? "Cập nhật công việc" : "Tạo công việc" }}
+    </p-button>
+  </div>
+</form>

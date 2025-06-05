@@ -1,0 +1,39 @@
+<main class="flex min-h-svh">
+  <section class="flex-1 bg-white flex flex-col">
+    <div class="pt-8 px-8">
+      <logo-icon />
+    </div>
+
+    <div class="flex-1 flex items-center justify-center">
+      <div class="max-w-100 w-full">
+        <router-outlet />
+      </div>
+    </div>
+  </section>
+  <section class="flex-1 bg-[#000E20] relative">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <logo-large-icon />
+
+      <div
+        class="inset-x-[-160px] h-[240px] absolute top-[104px] backdrop-blur-xs blur-md rounded-b-full"
+        style="
+          background: linear-gradient(
+            180deg,
+            rgba(239, 239, 239, 0.2) -196.56%,
+            rgba(22, 39, 61, 0) 42.26%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="absolute left-15 bottom-[112px] space-y-8 text-white">
+      <h1 class="text-[32px]">
+        Chào mừng <br />
+        bạn đến với Boffice!
+      </h1>
+      <p class="font-light text-xl">
+        Không chỉ là một giải pháp - làm việc mọi lúc mọi nơi
+      </p>
+    </div>
+  </section>
+</main>

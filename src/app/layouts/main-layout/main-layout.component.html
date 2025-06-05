@@ -1,0 +1,22 @@
+<div class="flex h-full">
+  <div
+    class="max-w-sidebar-2 w-full bg-background py-8 px-5 fixed top-0 left-[var(--container-sidebar-1)] bottom-0 z-50"
+  >
+    <h2 class="font-semibold text-white">Workplace</h2>
+
+    @for (i of route.children; track $index) {
+    <app-sub-nav [item]="i"></app-sub-nav>
+    }
+  </div>
+
+  <div
+    class="flex-1 flex flex-col pl-[calc(var(--container-sidebar-1)+var(--container-sidebar-2))]"
+  >
+    <app-header></app-header>
+
+    <main class="p-8 flex-1 bg-background-2">
+      <h3 class="text-lg font-bold mb-4">{{ title }}</h3>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

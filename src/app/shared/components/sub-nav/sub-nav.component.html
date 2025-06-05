@@ -1,0 +1,33 @@
+<div *ngIf="item.path">
+  <div
+    class="py-[10px] flex items-center justify-between text-white cursor-pointer"
+    (click)="handleExpanded()"
+  >
+    <p class="">{{ item.title }}</p>
+    <i
+      class="pi pi-chevron-down transition-transform"
+      [ngClass]="{ 'rotate-180': expanded }"
+    ></i>
+  </div>
+  <ul *ngIf="expanded">
+    @for (v of item.children; track $index) {
+    <li
+      [routerLink]="`${item.path}/${v.path}`"
+      class="py-[10px] relative cursor-pointer flex items-center px-4 gap-x-3"
+      *ngIf="v.path"
+      routerLinkActive="before:bg-linear-to-r before:from-[#08E066] before:to-[#00CFB7] before:absolute before:inset-0 before:opacity-20 before:rounded-lg"
+    >
+      <span
+        class="size-[5px] rounded-full bg-content-6 block"
+        routerLinkActive="!size-2 !bg-brand-600"
+      ></span>
+      <a
+        class="text-content-6 text-sm block"
+        [routerLinkActive]="'!text-brand-600 font-semibold'"
+      >
+        {{ v.title }}
+      </a>
+    </li>
+    }
+  </ul>
+</div>

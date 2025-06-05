@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@import "tailwindcss";
+@plugin "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+
+  --color-brand-50: #1c2d27;
+  --color-brand-100: #1b3d30;
+  --color-brand-200: #185b43;
+  --color-brand-300: #157a55;
+  --color-brand-400: #129868;
+  --color-brand-500: #0fb77a;
+  --color-brand-600: #00db8c;
+  --color-brand-700: #00be79;
+
+  --color-content-1: #1e1e1e;
+  --color-content-2: #24334a;
+  --color-content-3: #4d5972;
+  --color-content-4: #6b6b6b;
+  --color-content-5: #b1b1b1;
+  --color-content-6: #93a1b8;
+  --color-content-7: #4e5d78;
+  --color-content-8: #707f9b;
+
+  --color-background: #000e20;
+  --color-background-2: #f1f3f8;
+
+  --color-line: #ebecf0;
+  --color-dropdownline: #e4e4e4;
+
+  --container-sidebar-1: 90px;
+  --container-sidebar-2: 235px;
+}
+
+@layer base {
+  * {
+    @apply font-inter;
+  }
+
+  .table-container {
+    @apply p-4 pb-8 bg-white rounded-lg flex flex-col gap-y-6;
+  }
+}
+
+@layer components {
+  /* Datatable */
+  .p-datatable-thead,
+  .p-datatable-tbody {
+    @apply text-sm;
+  }
+
+  .p-datatable-tbody > tr {
+    @apply even:bg-[#F7F9FC];
+  }
+
+  .p-datatable-tbody > tr > td {
+    @apply border-none whitespace-nowrap;
+  }
+
+  .p-datatable-thead > tr > th {
+    @apply bg-[#F7F9FC] font-normal text-content-8 border-none whitespace-nowrap min-w-25;
+  }
+
+  /* Paginator */
+  .p-paginator {
+    @apply justify-end;
+  }
+
+  /* Button */
+  .p-button-label {
+    @apply text-sm;
+  }
+
+  /* InputText */
+  .p-inputtext {
+    @apply text-sm h-10;
+  }
+
+  /* Select */
+  .p-select {
+    @apply text-sm h-10;
+  }
+
+  /* MultiSelect */
+  .p-multiselect {
+    @apply text-sm min-h-10;
+  }
+
+  .p-multiselect-label {
+    @apply flex flex-wrap;
+  }
+
+  .p-chip-label {
+    @apply max-w-80 line-clamp-1;
+  }
+
+  /* Editor */
+  .p-editor-content {
+    @apply min-h-25;
+  }
+}

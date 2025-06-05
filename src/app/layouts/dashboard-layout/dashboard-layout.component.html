@@ -1,0 +1,47 @@
+<div class="flex min-h-svh">
+  <aside
+    class="bg-background max-w-sidebar-1 w-full transition-all delay-500 flex fixed top-0 left-0 bottom-0 z-50"
+  >
+    <div
+      class="w-sidebar-1 border-r border-[#202E46] h-full py-8 flex flex-col items-center gap-y-8"
+    >
+      <div class="flex items-center justify-center">
+        <span appSvgIcon="icons/logo.svg" svgClasses="size-[55px]"></span>
+      </div>
+      <ul class="flex-1 flex flex-col gap-y-9 w-full">
+        @for ( item of routes(); track $index ) {
+        <a class="relative" [routerLink]="item.path">
+          <span
+            [routerLinkActive]="
+              'bg-brand-600 w-1 h-[45px] rounded-[1px] absolute right-0 top-1/2 -translate-y-1/2'
+            "
+          ></span>
+          <span
+            class="w-11 h-10 mx-auto flex items-center justify-center relative"
+            [routerLinkActive]="
+              'before:bg-linear-to-r before:from-[#08E066] before:to-[#00CFB7] before:absolute before:inset-0 before:opacity-20 before:rounded-lg'
+            "
+          >
+            <span
+              [routerLinkActive]="'text-brand-500'"
+              [appSvgIcon]="item.data.icon"
+              class="hover:text-white text-[#93a1b8]"
+            ></span>
+          </span>
+        </a>
+        }
+      </ul>
+
+      <a routerLink="auth/login">
+        <span
+          appSvgIcon="icons/log-out.svg"
+          svgClasses="size-6 hover:text-white text-[#93a1b8] cursor-pointer"
+        ></span>
+      </a>
+    </div>
+  </aside>
+
+  <div class="flex-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

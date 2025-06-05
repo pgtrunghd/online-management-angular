@@ -1,0 +1,92 @@
+<form
+  class="grid grid-cols-2 gap-4"
+  [formGroup]="createProjectForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="flex flex-col gap-2 col-span-2">
+    <label>Tên dự án</label>
+    <input pInputText formControlName="name" placeholder="Nhập tên dự án" />
+  </div>
+
+  <div class="flex gap-2">
+    <div class="flex flex-col gap-2">
+      <label>Bắt đầu</label>
+      <p-datepicker
+        appendTo="body"
+        [iconDisplay]="'input'"
+        showIcon
+        formControlName="timeStart"
+        placeholder="Chọn ngày"
+        styleClass="w-full"
+        [dateFormat]="formatDatePicker"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label>Kết thúc</label>
+      <p-datepicker
+        appendTo="body"
+        [iconDisplay]="'input'"
+        showIcon
+        formControlName="timeEnd"
+        placeholder="Chọn ngày"
+        styleClass="w-full"
+        [dateFormat]="formatDatePicker"
+      />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <label>Người quản trị</label>
+    <p-multiselect
+      [options]="managerOptions"
+      optionLabel="name"
+      display="chip"
+      (onFilter)="filterUsers($event, 'managers')"
+      filter
+      formControlName="managers"
+      [loading]="userService.loading()"
+      [maxSelectedLabels]="managerOptions.length"
+      placeholder="Chọn người quản trị"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Người tham gia</label>
+    <p-multiselect
+      [options]="joinerOptions"
+      optionLabel="name"
+      display="chip"
+      (onFilter)="filterUsers($event, 'joiners')"
+      filter
+      formControlName="joiners"
+      [loading]="userService.loading()"
+      [maxSelectedLabels]="joinerOptions.length"
+      placeholder="Chọn người tham gia"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label>Người theo dõi</label>
+    <p-multiselect
+      [options]="followerOptions"
+      optionLabel="name"
+      display="chip"
+      (onFilter)="filterUsers($event, 'followers')"
+      filter
+      formControlName="followers"
+      [loading]="userService.loading()"
+      [maxSelectedLabels]="followerOptions.length"
+      placeholder="Chọn người theo dõi"
+    />
+  </div>
+
+  <div class="flex flex-col gap-2 col-span-2">
+    <label for="username">Mô tả</label>
+    <p-editor formControlName="description" />
+  </div>
+
+  <div class="flex justify-center col-span-2 gap-4">
+    <p-button severity="secondary" (onClick)="onClose()">Hủy</p-button>
+    <p-button type="submit" [loading]="projectService.loadingPost()">{{
+      projectId() ? "Cập nhật dự án" : "Tạo dự án"
+    }}</p-button>
+  </div>
+</form>

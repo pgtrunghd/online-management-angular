@@ -1,0 +1,53 @@
+<h1 class="text-[32px] font-medium text-black">Đăng nhập</h1>
+<p class="text-sm text-content-4">Vui lòng Đăng nhập để truy cập hệ thống.</p>
+
+<form class="mt-9" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="space-y-6">
+    <p-floatlabel variant="on">
+      <p-iconfield>
+        <p-inputicon class="pi pi-unlock" />
+        <input
+          pInputText
+          autocomplete="off"
+          class="w-full h-11"
+          formControlName="email"
+        />
+      </p-iconfield>
+      <label>Tài khoản</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <p-iconfield>
+        <p-inputicon class="pi pi-key" />
+        <input
+          pInputText
+          [type]="showPassword ? 'text' : 'password'"
+          autocomplete="off"
+          class="w-full h-11"
+          formControlName="password"
+        />
+        <p-inputicon
+          [ngClass]="!showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"
+          (click)="toggleShowPassword()"
+        />
+      </p-iconfield>
+      <label>Mật khẩu</label>
+    </p-floatlabel>
+  </div>
+
+  <p class="mt-2 text-right text-sm text-brand-500">Quên mật khẩu</p>
+
+  <p-button styleClass="mt-10 w-full h-11" type="submit" [loading]="loading"
+    >Đăng nhập</p-button
+  >
+
+  <div class="w-full h-px bg-line my-12.5"></div>
+  <p-button styleClass="w-full h-11" variant="outlined" severity="secondary"
+    >Đăng nhập bằng tài khoản Bvote</p-button
+  >
+
+  <p class="text-center mt-3 text-content-4 text-sm">
+    Doanh nghiệp đăng ký sử dụng Boffice?
+    <span class="text-brand-500">Đăng ký ngay</span>
+  </p>
+</form>

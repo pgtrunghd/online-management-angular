@@ -1,0 +1,32 @@
+<header class="py-5 px-8 shadow-sm flex items-center justify-between bg-white">
+  <p-button
+    styleClass="h-10 bg-linear-to-r from-[#08E066] to-[#00CFB7] border-none hover:opacity-70 transition-opacity"
+  >
+    <span appSvgIcon="icons/radio.svg"></span>
+    <p class="font-medium">Bảng tin</p>
+  </p-button>
+
+  <div class="flex items-center gap-x-3">
+    <p-button styleClass="size-10 border-none bg-background-2 hover:opacity-70">
+      <p-overlaybadge value="2" styleClass="top-1 right-1" severity="danger">
+        <span
+          appSvgIcon="icons/notification.svg"
+          svgClasses="text-content-8"
+        ></span>
+      </p-overlaybadge>
+    </p-button>
+    <p-button styleClass="size-10 border-none bg-background-2 hover:opacity-70">
+      <span appSvgIcon="icons/inbox.svg" svgClasses="text-content-8"></span>
+    </p-button>
+
+    <div class="flex items-center gap-x-2 cursor-pointer">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/walter.jpg"
+        class="!size-11"
+        shape="circle"
+      />
+      <p class="font-semibold text-content-7">Phạm Gia Trung</p>
+      <i class="pi pi-chevron-down text-content-8"></i>
+    </div>
+  </div>
+</header>

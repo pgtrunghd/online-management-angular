@@ -1,0 +1,14 @@
+<span class="flex items-center gap-x-2">
+  <p-button
+    styleClass="size-8 !bg-[#6B82FF]/20 hover:!bg-[#6B82FF]/40 !border-none"
+    (onClick)="handleEdit()"
+  >
+    <span appSvgIcon="icons/edit.svg" svgClasses="text-[#6B82FF]"></span>
+  </p-button>
+  <p-button
+    styleClass="size-8 !bg-[#FF4D4F]/20 hover:!bg-[#FF4D4F]/40 !border-none"
+    (onClick)="handleDelete($event)"
+  >
+    <span appSvgIcon="icons/trash.svg" svgClasses="text-[#FF4D4F]"></span>
+  </p-button>
+</span>

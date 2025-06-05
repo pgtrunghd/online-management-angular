@@ -18,7 +18,7 @@ import { SvgIconDirective } from '../../shared/directives/svg-icon.directive';
 export class DashboardLayoutComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-
+  
   currentUrl = signal<string>(this.router.url);
   routes = signal<any[]>([]);
 

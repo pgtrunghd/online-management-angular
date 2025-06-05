@@ -6,7 +6,7 @@ import { finalize, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BaseService {
-  protected baseUrl = 'http://183.81.32.36:6110';
+  protected baseUrl = 'https://jsonplaceholder.typicode.com/todos';
   http = inject(HttpClient);
   loading = signal(false);
   loadingPost = signal(false);

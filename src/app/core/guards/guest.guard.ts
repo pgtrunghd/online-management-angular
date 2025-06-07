@@ -9,7 +9,7 @@ export const guestGuard: CanActivateFn = (route, state) => {
   const user = authService.getMe();
 
   if (token && user) { 
-    router.navigate(['/dashboard']);
+    router.navigate(['/']);
     return false;
   }
 

@@ -12,18 +12,18 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'workplace',
         pathMatch: 'full',
       },
-      {
-        path: 'dashboard',
-        component: HomeComponent,
-        title: 'Dashboard',
-        data: {
-          group: 'Dashboard',
-          icon: 'icons/home.svg',
-        },
-      },
+      // {
+      //   path: 'dashboard',
+      //   component: HomeComponent,
+      //   title: 'Dashboard',
+      //   data: {
+      //     group: 'Dashboard',
+      //     icon: 'icons/home.svg',
+      //   },
+      // },
       {
         path: 'workplace',
         component: MainLayoutComponent,

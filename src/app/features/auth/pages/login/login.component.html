@@ -37,7 +37,10 @@
 
   <p class="mt-2 text-right text-sm text-brand-500">Quên mật khẩu</p>
 
-  <p-button styleClass="mt-10 w-full h-11" type="submit" [loading]="loading"
+  <p-button
+    styleClass="mt-10 w-full h-11"
+    type="submit"
+    [loading]="authService.loadingPost()"
     >Đăng nhập</p-button
   >
 

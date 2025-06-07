@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
+import { environment } from 'environments/environment';
 import { finalize, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BaseService {
-  baseUrl = 'http://183.81.32.36:6110';
+  baseUrl = environment.apiUrl;
   http = inject(HttpClient);
   loading = signal(false);
   loadingPost = signal(false);

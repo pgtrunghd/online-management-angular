@@ -26,7 +26,6 @@ export class LoggingInterceptor implements HttpInterceptor {
         if (err.error instanceof ErrorEvent) {
           errorMessage = `Lỗi: ${err.error.error}`;
         }
-        console.log(errorMessage);
 
         this.messageService.add({
           severity: 'error',

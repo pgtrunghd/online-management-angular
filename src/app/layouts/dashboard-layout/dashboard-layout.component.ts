@@ -9,6 +9,7 @@ import {
 } from '@angular/router';
 import { filter } from 'rxjs';
 import { SvgIconDirective } from '../../shared/directives/svg-icon.directive';
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -18,7 +19,8 @@ import { SvgIconDirective } from '../../shared/directives/svg-icon.directive';
 export class DashboardLayoutComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  
+  private authService = inject(AuthService);
+
   currentUrl = signal<string>(this.router.url);
   routes = signal<any[]>([]);
 
@@ -28,6 +30,11 @@ export class DashboardLayoutComponent implements OnInit {
 
   isActive(url: string): boolean {
     return this.router.url === url;
+  }
+
+  logOut() {
+    this.router.navigate(['auth/login']);
+    this.authService.removeLocalStorage();
   }
 
   ngOnInit() {

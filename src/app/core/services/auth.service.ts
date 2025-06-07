@@ -18,9 +18,12 @@ export class AuthService extends BaseService {
     return JSON.parse(localStorage.getItem('user') as string);
   }
 
+  removeLocalStorage() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  }
+
   login(credentials: { email: string; password: string }) {
-    console.log(this.baseUrl);
-    
     return this.withLoadingPost(
       this.http.post(`${this.baseUrl}/auth/login`, credentials)
     );

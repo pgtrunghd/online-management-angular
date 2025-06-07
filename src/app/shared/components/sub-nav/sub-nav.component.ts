@@ -3,8 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {
   Router,
   RouterLink,
-  RouterLinkActive,
-  QueryParamsHandling,
+  RouterLinkActive
 } from '@angular/router';
 
 @Component({
